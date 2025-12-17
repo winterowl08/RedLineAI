@@ -3,7 +3,7 @@ import { FileUpload, DiligenceReport } from "../types";
 
 // Note: In a real environment, ensure process.env.API_KEY is set.
 // For this environment, we assume the variable is injected.
-const API_KEY = process.env.GEMINI_API_KEY || '';
+const API_KEY = process.env.VITE_GEMINI_API_KEY || '';
 
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
@@ -129,7 +129,7 @@ export const analyzeDocuments = async (files: FileUpload[]): Promise<DiligenceRe
     throw error;
   }
 };
-console.log("Gemini key length:", process.env.GEMINI_API_KEY?.length);
+console.log("Gemini key length:", process.env.VITE_GEMINI_API_KEY?.length);
 
 export const fileToBase64 = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {
